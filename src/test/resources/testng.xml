@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="NASA Tests Suite" verbose="1" parallel="tests"  data-provider-thread-count="4" thread-count="4" configfailurepolicy="continue">
+    <test name="Test 1" annotations="JDK" preserve-order="true">
+        <classes>
+            <class name="gov.nasa.api.Integrationts"/>
+            <class name="gov.nasa.api.Tests"/>
+        </classes>
+    </test>
+</suite>
