@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="4" parallel="methods" name="Failed suite [Surefire suite]" verbose="0">
+  <test thread-count="4" parallel="methods" name="Surefire test(failed)" verbose="0">
+    <groups>
+      <run>
+        <include name="web"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="gov.nasa.web.HomeTests">
+        <methods>
+          <include name="verifySearchAPIIsWorkingOK"/>
+          <include name="after"/>
+          <include name="setBeforeTests"/>
+        </methods>
+      </class> <!-- gov.nasa.web.HomeTests -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->

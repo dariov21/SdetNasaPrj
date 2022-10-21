@@ -1,0 +1,8 @@
+# Created at 2022-10-21T10:52:16.560
+Unable to create injector, see the following errors:
+
+1) An exception was caught and reported. Message: null
+  at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:137)
+
+1 error
+

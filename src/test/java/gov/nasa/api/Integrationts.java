@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class Integrationts extends BaseTest {
 
 
-    @Test(testName="Bad Api Key")
+    @Test(testName="Bad Api Key", groups = { "integreations" , "api"})
     public void authenticateBadAPiKey(){
         HashMap<String, String> parameters = new HashMap<>();
         parameters.put("api_key","BadKEY");
@@ -20,7 +20,7 @@ public class Integrationts extends BaseTest {
         response.then().assertThat().extract().jsonPath().get("error.message").equals("An invalid api_key was supplied. Get one at https://api.nasa.gov:443");
     }
 
-    @Test(testName="Bad URL")
+    @Test(testName="Bad URL", groups = { "integreations", "api"})
     public void authenticateBadURL(){
         HashMap<String, String> parameters = new HashMap<>();
         parameters.put("api_key","BadKEY");
@@ -28,7 +28,7 @@ public class Integrationts extends BaseTest {
         response.then().statusCode(HttpStatus.SC_NOT_FOUND);
     }
 
-    @Test(testName="DEMO_KEY AND RATE Limits")
+    @Test(testName="DEMO_KEY AND RATE Limits", groups = { "integreations", "api"})
     public void authenticateDemoKeyIsOk(){
         HashMap<String, String> parameters = new HashMap<>();
         parameters.put("api_key","DEMO_KEY");
@@ -37,7 +37,7 @@ public class Integrationts extends BaseTest {
         response.then().assertThat().header("X-Ratelimit-Limit","40");
     }
 
-    @Test(testName="NORMAL_KEY AND Rate Limits")
+    @Test(testName="NORMAL_KEY AND Rate Limits", groups = { "integreations", "api"})
     public void authenticateNormalKeyIsOkAndRateLimits(){
         HashMap<String, String> parameters = new HashMap<>();
         parameters.put("api_key","MWz9yfrC6UYOfTwinHKRIsbZHY9aAO10fl9mQxv2");

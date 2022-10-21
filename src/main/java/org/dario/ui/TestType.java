@@ -35,7 +35,33 @@ public enum TestType implements IDriverBuilder {
             return new ChromeDriver(options);
         }
 
+    },
+    WEB_CHROME_HEADLESS{
+        @Override
+        public RemoteWebDriver getDriver() {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("disable-infobars");
+            options.addArguments("test-type", "new-window", "disable-extensions","start-maximized");
+            options.addArguments("--headless");
+            Map<String, Object> prefs = new HashMap<>();
+            options.addArguments("disable-logging", "silent", "ignore-certificate-errors");
+            options.setExperimentalOption("useAutomationExtension", false);
+            options.setExperimentalOption("excludeSwitches",
+                    Collections.singletonList("enable-automation"));
+            options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+            options.setCapability(ChromeOptions.CAPABILITY, options);
+            options.setCapability("chrome.switches", Arrays.asList("--disable-extensions", "--disable-logging",
+                    "--ignore-certificate-errors", "--log-level=0", "--silent"));
+            options.setCapability("silent", true);
+            System.setProperty("webdriver.chrome.silentOutput", "true");
+            WebDriverManager.chromedriver().setup();
+            return new ChromeDriver(options);
+        }
+
     };
+    ;
+
+
 
 
     @Override

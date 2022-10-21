@@ -2,6 +2,7 @@ package org.dario.ui;
 
 
 
+import org.dario.PropertyManager;
 import org.dario.ui.model.BasePage;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -31,9 +32,10 @@ public class DriverManager {
         }
     }
     public static RemoteWebDriver getDriverInstance() {
-        if(localDriver.get() == null){
+        TestType type = TestType.getType(PropertyManager.getProperty("nasa.run.type"));
+          if(localDriver.get() == null){
             try {
-                createDriverInstance(TestType.WEB_CHROME);
+                createDriverInstance(type);
             } catch (Exception e) {
                 e.printStackTrace();
             }

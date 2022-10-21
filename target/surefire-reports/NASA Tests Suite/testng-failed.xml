@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite configfailurepolicy="continue" thread-count="4" parallel="tests" data-provider-thread-count="4" name="Failed suite [NASA Tests Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="4" parallel="tests" name="Test 1(failed)" verbose="0">
+    <groups>
+      <run>
+        <include name="api"/>
+        <include name="api"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="gov.nasa.api.Integrationts">
+        <methods>
+          <include name="authenticateNormalKeyIsOkAndRateLimits"/>
+        </methods>
+      </class> <!-- gov.nasa.api.Integrationts -->
+      <class name="gov.nasa.api.CuriosityApiTests">
+        <methods>
+          <include name="validateAmountsOfPicturesEachSOlPhotos"/>
+        </methods>
+      </class> <!-- gov.nasa.api.CuriosityApiTests -->
+    </classes>
+  </test> <!-- Test 1(failed) -->
+</suite> <!-- Failed suite [NASA Tests Suite] -->

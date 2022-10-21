@@ -1,11 +1,11 @@
 package gov.nasa.api.base;
 
-import org.dario.Rest;
+import org.dario.PropertyManager;
 import org.testng.asserts.SoftAssert;
 
-public abstract class BaseTest extends Rest {
-    protected final static String NASA_KEY = "1zTNPtdGjArOmsEpblPNGYUBQD0Z8kl5Z4gI5zS9";
-    protected final static String URL_NASA_BASE = "https://api.nasa.gov";
+public abstract class BaseTest extends org.dario.api.BaseTest {
+    protected final static String NASA_KEY = PropertyManager.getProperty("nasa.api.key");
+    protected final static String URL_NASA_BASE = PropertyManager.getProperty("nasa.qa.url");
     protected final static String URL_NASA_PHOTOS = "/mars-photos/api";
     public ThreadLocal<SoftAssert> softAssertThreadLocal = new ThreadLocal<>();
 

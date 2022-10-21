@@ -27,12 +27,19 @@
             <nasa.run.type>WEB_CHROME</nasa.run.type>
             <nasa.testng.config>src/test/resources/testngWeb.xml</nasa.testng.config>
             <nasa.qa.url>https://api.nasa.gov/index.html</nasa.qa.url>
+            <nasa.test.groups>web</nasa.test.groups>
+            <nasa.test.include>gov.nasa.web.*</nasa.test.include>
         </properties>
     </profile>
     <profile>
         <id>API</id>
         <properties>
             <nasa.testng.config>src/test/resources/testng.xml</nasa.testng.config>
+            <nasa.api.key>1zTNPtdGjArOmsEpblPNGYUBQD0Z8kl5Z4gI5zS9</nasa.api.key>
+            <nasa.qa.url>https://api.nasa.gov</nasa.qa.url>
+            <nasa.test.groups>api</nasa.test.groups>
+            <nasa.test.include>gov.nasa.api.*</nasa.test.include>
+            <nasa.run.type>WEB_CHROME_HEADLESS</nasa.run.type>
         </properties>
     </profile>
   </profiles>
@@ -158,9 +165,15 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M4</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>${nasa.testng.config}</suiteXmlFile>
-                    </suiteXmlFiles>
+                   <!-- <suiteXmlFiles>
+                            <suiteXmlFile>${nasa.testng.config}</suiteXmlFile>
+                    </suiteXmlFiles>-->
+                   <!--<includes>
+                      <include>${nasa.test.include}</include>
+                   </includes>-->
+                    <parallel>methods</parallel>
+                    <threadCount>4</threadCount>
+                     <groups>${nasa.test.groups}</groups>
                 </configuration>
             </plugin>
             <plugin>

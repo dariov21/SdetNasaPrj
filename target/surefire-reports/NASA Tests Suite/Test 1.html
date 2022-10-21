@@ -1,0 +1,272 @@
+<html>
+<head>
+<title>TestNG:  Test 1</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test 1</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>6/2/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Oct 21 10:31:37 ART 2022</td>
+</tr>
+<tr><td>Total time:</td><td>17 seconds (17987 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>api </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='gov.nasa.api.Integrationts.authenticateNormalKeyIsOkAndRateLimits()'><b>authenticateNormalKeyIsOkAndRateLimits</b><br>Test class: gov.nasa.api.Integrationts</td>
+<td><div><pre>java.lang.AssertionError: 1 expectation failed.
+Expected header &quot;X-Ratelimit-Remaining&quot; was not &quot;1997&quot;, was &quot;1998&quot;. Headers are:
+Date=Fri, 21 Oct 2022 13:31:46 GMT
+Content-Type=application/json
+Transfer-Encoding=chunked
+Connection=keep-alive
+Access-Control-Allow-Origin=*
+Access-Control-Expose-Headers=X-RateLimit-Limit, X-RateLimit-Remaining
+Age=0
+Content-Encoding=gzip
+Strict-Transport-Security=max-age=31536000; preload
+Vary=Accept-Encoding
+Via=http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+X-Cache=MISS
+X-Ratelimit-Limit=2000
+X-Ratelimit-Remaining=1998
+X-Vcap-Request-Id=b06483f6-15b3-4369-5d54-b45484c4b735
+X-Frame-Options=DENY
+X-Content-Type-Options=nosniff
+X-XSS-Protection=1; mode=block
+
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:86)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:58)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
+	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
+	at io.restassured.internal.ResponseSpecificationImpl.header(ResponseSpecificationImpl.groovy:191)
+	at io.restassured.specification.ResponseSpecification$header$1.callCurrent(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.header(ResponseSpecificationImpl.groovy:198)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.header(ValidatableResponseOptionsImpl.java:124)
+	at gov.nasa.api.Integrationts.authenticateNormalKeyIsOkAndRateLimits(Integrationts.java:49)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace437270030", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace437270030'><pre>java.lang.AssertionError: 1 expectation failed.
+Expected header &quot;X-Ratelimit-Remaining&quot; was not &quot;1997&quot;, was &quot;1998&quot;. Headers are:
+Date=Fri, 21 Oct 2022 13:31:46 GMT
+Content-Type=application/json
+Transfer-Encoding=chunked
+Connection=keep-alive
+Access-Control-Allow-Origin=*
+Access-Control-Expose-Headers=X-RateLimit-Limit, X-RateLimit-Remaining
+Age=0
+Content-Encoding=gzip
+Strict-Transport-Security=max-age=31536000; preload
+Vary=Accept-Encoding
+Via=http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+X-Cache=MISS
+X-Ratelimit-Limit=2000
+X-Ratelimit-Remaining=1998
+X-Vcap-Request-Id=b06483f6-15b3-4369-5d54-b45484c4b735
+X-Frame-Options=DENY
+X-Content-Type-Options=nosniff
+X-XSS-Protection=1; mode=block
+
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:60)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:86)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:58)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
+	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
+	at io.restassured.internal.ResponseSpecificationImpl.header(ResponseSpecificationImpl.groovy:191)
+	at io.restassured.specification.ResponseSpecification$header$1.callCurrent(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.header(ResponseSpecificationImpl.groovy:198)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.header(ValidatableResponseOptionsImpl.java:124)
+	at gov.nasa.api.Integrationts.authenticateNormalKeyIsOkAndRateLimits(Integrationts.java:49)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+</pre></div></td>
+<td>3</td>
+<td>gov.nasa.api.Integrationts@59d016c9</td></tr>
+<tr>
+<td title='gov.nasa.api.CuriosityApiTests.validateAmountsOfPicturesEachSOlPhotos()'><b>validateAmountsOfPicturesEachSOlPhotos</b><br>Test class: gov.nasa.api.CuriosityApiTests</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	Amount of photos in :MASTis 10.5 times greater than RHAZ photos are :2 expected [false] but found [true],
+	Amount of photos in :MASTis 10.5 times greater than FHAZ photos are :2 expected [false] but found [true]
+	at gov.nasa.api.CuriosityApiTests.validateAmountsOfPicturesEachSOlPhotos(CuriosityApiTests.java:60)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+... Removed 17 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace762957061", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace762957061'><pre>java.lang.AssertionError: The following asserts failed:
+	Amount of photos in :MASTis 10.5 times greater than RHAZ photos are :2 expected [false] but found [true],
+	Amount of photos in :MASTis 10.5 times greater than FHAZ photos are :2 expected [false] but found [true]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at gov.nasa.api.CuriosityApiTests.validateAmountsOfPicturesEachSOlPhotos(CuriosityApiTests.java:60)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+</pre></div></td>
+<td>1</td>
+<td>gov.nasa.api.CuriosityApiTests@3cc2931c</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='gov.nasa.api.Integrationts.authenticateBadAPiKey()'><b>authenticateBadAPiKey</b><br>Test class: gov.nasa.api.Integrationts</td>
+<td></td>
+<td>3</td>
+<td>gov.nasa.api.Integrationts@59d016c9</td></tr>
+<tr>
+<td title='gov.nasa.api.Integrationts.authenticateBadURL()'><b>authenticateBadURL</b><br>Test class: gov.nasa.api.Integrationts</td>
+<td></td>
+<td>1</td>
+<td>gov.nasa.api.Integrationts@59d016c9</td></tr>
+<tr>
+<td title='gov.nasa.api.Integrationts.authenticateDemoKeyIsOk()'><b>authenticateDemoKeyIsOk</b><br>Test class: gov.nasa.api.Integrationts</td>
+<td></td>
+<td>1</td>
+<td>gov.nasa.api.Integrationts@59d016c9</td></tr>
+<tr>
+<td title='gov.nasa.api.CuriosityApiTests.compareFirst10MarsPhotosBetweenSOlEarthDate()'><b>compareFirst10MarsPhotosBetweenSOlEarthDate</b><br>Test class: gov.nasa.api.CuriosityApiTests</td>
+<td></td>
+<td>3</td>
+<td>gov.nasa.api.CuriosityApiTests@3cc2931c</td></tr>
+<tr>
+<td title='gov.nasa.api.CuriosityApiTests.retrieveFirst10MarsPhotosWithEarthDate()'><b>retrieveFirst10MarsPhotosWithEarthDate</b><br>Test class: gov.nasa.api.CuriosityApiTests</td>
+<td></td>
+<td>1</td>
+<td>gov.nasa.api.CuriosityApiTests@3cc2931c</td></tr>
+<tr>
+<td title='gov.nasa.api.CuriosityApiTests.retrieveFirst10MarsPhotosWithSol()'><b>retrieveFirst10MarsPhotosWithSol</b><br>Test class: gov.nasa.api.CuriosityApiTests</td>
+<td></td>
+<td>1</td>
+<td>gov.nasa.api.CuriosityApiTests@3cc2931c</td></tr>
+</table><p>
+</body>
+</html>
